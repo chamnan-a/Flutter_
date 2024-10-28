@@ -33,9 +33,8 @@ class Employee {
 
   double computeSalary(double baseSalary,int expYear,List<Skill> skills){
     double totalSalary=baseSalary;
-    for(int i=0;i<expYear;i++){
-      totalSalary+=2000;
-    }
+    //total salary
+    totalSalary+=2000*expYear;
     for(var skill in skills){
       if(skill==Skill.DART){
       totalSalary+=3000;
