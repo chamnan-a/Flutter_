@@ -6,7 +6,7 @@ enum Skill {
   FLUTTER,
   DART,
   OTHER;
-  
+
    }
 
 class Employee {
