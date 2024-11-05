@@ -30,12 +30,15 @@ class CustomButton extends StatefulWidget {
 }
 
 class _CustomButtonState extends State<CustomButton> {
+  //by default make the button as unselected
   bool isSelect=false;
+  // getter 
   String get buttonText => isSelect? "Selected":"Not Selected";
   Color get textColor => isSelect? Colors.white:Colors.black;
   Color get backgroundColors => isSelect? Colors.blue[500]!:Colors.blue[50]!;
 
   void selectButton(){
+    //make the state as the oppisite of it self so that it can be toggle false true false true...
     setState(() {
       isSelect=!isSelect;
     });
