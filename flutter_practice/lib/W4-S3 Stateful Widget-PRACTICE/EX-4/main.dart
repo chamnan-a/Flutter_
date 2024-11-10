@@ -44,7 +44,7 @@ class ScoreCard extends StatefulWidget {
 }
 
 class _ScoreCardState extends State<ScoreCard> {
-  double score = 0; // Initial score value
+  double score = 0; // Initial score value from 0
 
   // Function to increase score
   void increaseScore() {
@@ -66,9 +66,10 @@ class _ScoreCardState extends State<ScoreCard> {
 
   // Function to calculate the width for the progress bar
   double calculateProgressBarWidth(double score, double maxWidth) {
+      //set limit score to be range from 1-10
     if (score < 0) score = 0;
     if (score > 10) score = 10;
-    return (score / 10.0) * maxWidth; // Ensure score 10 fills the entire bar
+    return (score / 10.0) * maxWidth; //normalize the score 
   }
 
   @override
@@ -111,8 +112,10 @@ class _ScoreCardState extends State<ScoreCard> {
               ),
             ),
             const SizedBox(height: 10),
+            //use layout builde widget for working both chrome and emulator
             LayoutBuilder(
               builder: (context, constraints) {
+                 //the maxwidth alway minus 8 to make it look stay inside the border container (the left and right width)
                 double progressWidth = calculateProgressBarWidth(score, constraints.maxWidth - 8);
                 return Stack(
                   fit: StackFit.loose,
