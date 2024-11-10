@@ -25,10 +25,13 @@ class ImageViewer extends StatefulWidget {
 class _ImageViewerState extends State<ImageViewer> {
   int i=0;
   void goNext(){
+    
     setState(() {
+      //check index to be less than 5
       if(i<images.length-1){
         i++;
       }
+      // if index is more then 5 reset index start again from 0 which is the bird1 pic 
       else{
         i=0;
       }
@@ -36,7 +39,9 @@ class _ImageViewerState extends State<ImageViewer> {
   }
   void goPrevious(){
     setState(() {
+      //decrement the index 
       i--;
+      //check if after decrement if i<0 set the index to be the last index which is the old man pic
       if(i<0){
         i=images.length-1;
       }
