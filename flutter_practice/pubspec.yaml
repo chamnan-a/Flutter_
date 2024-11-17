@@ -63,6 +63,7 @@ flutter:
     - assets/
     - assets/cards/
     - assets/w4-s2/
+    - assets/w6-s2/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

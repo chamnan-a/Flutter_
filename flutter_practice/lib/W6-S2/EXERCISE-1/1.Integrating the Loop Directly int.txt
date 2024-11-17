@@ -1,0 +1,11 @@
+1.Integrating the Loop Directly into the List
+_simple loop logic
+_it generate the text to the list dynamics
+2.Using Map
+_need to use toList to convert it to list
+_less code
+_complex logic
+3.using function
+_less code
+_reuseable
+_good to convert complex code to one function 

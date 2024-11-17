@@ -11,6 +11,7 @@ enum ButtonType {
  enum IconPosition {
   before(IconAlignment.start),
   after(IconAlignment.end);
+
   final IconAlignment iconAlignment;
   const IconPosition(this.iconAlignment);
 }
@@ -19,11 +20,11 @@ void main() {
   runApp(MaterialApp(
     home: Scaffold(
       appBar: AppBar(
-        title: Text("CustomButton"),
+        title:  const Text("CustomButton"),
         backgroundColor: Colors.red,
       ),
       backgroundColor: Colors.white,
-      body: Padding(
+      body: const Padding(
         padding: EdgeInsets.all(20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -32,7 +33,7 @@ void main() {
             CustomButton(
               label: "Submit",
               icon: Icons.check,
-              iconPosition: IconPosition.before,
+              iconPosition: IconPosition.after,
               buttonType: ButtonType.Primary,
             ),
             SizedBox(height: 20,),
@@ -76,7 +77,7 @@ class CustomButton extends StatelessWidget {
         backgroundColor: buttonType.color,
         padding: EdgeInsets.symmetric(vertical: 20)
       ),
-      iconAlignment: iconPosition.iconAlignment, // Aligns the icon to the left
+      iconAlignment: iconPosition.iconAlignment, 
     );
   }
 }

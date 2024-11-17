@@ -17,11 +17,11 @@ void main() {
 runApp(MaterialApp(
   home:Scaffold(
           appBar: AppBar(
-        title: Text("Products"),
+        title: const Text("Products"),
         backgroundColor: Colors.grey,
       ),
     backgroundColor: Colors.blue,
-    body:Padding(
+    body:const Padding(
       padding: EdgeInsets.all(30),
       child:Column(
         children: [
@@ -54,10 +54,10 @@ class ProductCard extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Image.asset(product.image,width: 50,height: 50,alignment: Alignment.topLeft,),
-            SizedBox(height: 10),
-            Text(product.title,style: TextStyle(fontSize: 40),),
-            SizedBox(height: 5),
-            Text(product.description,style: TextStyle(fontSize: 15),)
+            const SizedBox(height: 10),
+            Text(product.title,style: const TextStyle(fontSize: 40),),
+            const SizedBox(height: 5),
+            Text(product.description,style: const TextStyle(fontSize: 15),)
           ],
         ),
       )

@@ -1,0 +1,13 @@
+What type of data will store the jokes?
+=>List<Joke> jokes=[]
+What type of data will store the favorite joke?
+=> int currentFavoriteIndex
+Which widget should be in charge of storing the favorite
+joke? 
+=>JokeList()
+Which widget should be stateful?
+=>JokeList()
+How will your widget interact?
+JokeList widget pass onFavoriteClick callback function onto favoriteCard widget so whenever i press the icon heart it will go back to update the JokeList widget
+Do You Need to Pass a Callback Between Widgets?
+Yes on the icon heart to update the state of JokeList widgets
