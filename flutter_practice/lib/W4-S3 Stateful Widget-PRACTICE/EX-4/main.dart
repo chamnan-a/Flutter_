@@ -1,42 +1,60 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MyApp());
-}
+void main() => runApp(MaterialApp(
+      home: Scaffold(
+          appBar: AppBar(
+            title: const Text("Score"),
+            backgroundColor: Colors.greenAccent,
+          ),
+          backgroundColor: Colors.green[50],
+          body: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.all(20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  ScoreCard(
+                    text: "My Flutter Score",
+                    colorBar: Colors.green[800],
+                  ),
+                  SizedBox(height: 10),
+                  ScoreCard(
+                    text: "My Dart Score",
+                    colorBar: Colors.green[600],
+                  ),
+                  SizedBox(height: 10),
+                  ScoreCard(
+                    text: "My React Score",
+                    colorBar: Colors.green[900],
+                  ),
+                ],
+              ),
+            ),
+          ))));
 
-<<<<<<< HEAD
-class MyApp extends StatefulWidget {
+class ScoreCard extends StatefulWidget {
+  final String text;
+  final Color? colorBar;
+
+  const ScoreCard({super.key, required this.text, this.colorBar = Colors.greenAccent});
+
   @override
-  _MyAppState createState() => _MyAppState();
+  State<ScoreCard> createState() => _ScoreCardState();
 }
-=======
+
 class _ScoreCardState extends State<ScoreCard> {
-  double score = 0; // Initial score value from 0
->>>>>>> 5e963f10ab84615d5fe006f01d26a14b34216ba5
+  double score = 0; // Initial score value
 
-class _MyAppState extends State<MyApp> {
-  bool _isScreenA = true; // Boolean to track current screen
-
-  // Function to switch screens
-  void _switchScreen() {
+  // Function to increase score
+  void increaseScore() {
     setState(() {
-      _isScreenA = !_isScreenA; // Toggle between Screen A and Screen B
+      if (score < 10) {
+        score++;
+      }
     });
   }
 
-<<<<<<< HEAD
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("Switch Screens Without Navigator"),
-        ),
-        body: Center(
-          child: _isScreenA
-              ? ScreenA(onSwitch: _switchScreen) // Show Screen A
-              : ScreenB(onSwitch: _switchScreen), // Show Screen B
-=======
   // Function to decrease score
   void decreaseScore() {
     setState(() {
@@ -48,10 +66,9 @@ class _MyAppState extends State<MyApp> {
 
   // Function to calculate the width for the progress bar
   double calculateProgressBarWidth(double score, double maxWidth) {
-      //set limit score to be range from 1-10
     if (score < 0) score = 0;
     if (score > 10) score = 10;
-    return (score / 10.0) * maxWidth; //normalize the score 
+    return (score / 10.0) * maxWidth; // Ensure score 10 fills the entire bar
   }
 
   @override
@@ -94,10 +111,8 @@ class _MyAppState extends State<MyApp> {
               ),
             ),
             const SizedBox(height: 10),
-            //use layout builde widget for working both chrome and emulator
             LayoutBuilder(
               builder: (context, constraints) {
-                 //the maxwidth alway minus 8 to make it look stay inside the border container (the left and right width)
                 double progressWidth = calculateProgressBarWidth(score, constraints.maxWidth - 8);
                 return Stack(
                   fit: StackFit.loose,
@@ -129,49 +144,8 @@ class _MyAppState extends State<MyApp> {
               },
             ),
           ],
->>>>>>> 5e963f10ab84615d5fe006f01d26a14b34216ba5
         ),
       ),
-    );
-  }
-}
-
-class ScreenA extends StatelessWidget {
-  final VoidCallback onSwitch;
-
-  ScreenA({required this.onSwitch});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Text("This is Screen A"),
-        ElevatedButton(
-          onPressed: onSwitch, // Switch to Screen B
-          child: Text("Go to Screen B"),
-        ),
-      ],
-    );
-  }
-}
-
-class ScreenB extends StatelessWidget {
-  final VoidCallback onSwitch;
-
-  ScreenB({required this.onSwitch});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Text("This is Screen B"),
-        ElevatedButton(
-          onPressed: onSwitch, // Switch to Screen A
-          child: Text("Go to Screen A"),
-        ),
-      ],
     );
   }
 }
