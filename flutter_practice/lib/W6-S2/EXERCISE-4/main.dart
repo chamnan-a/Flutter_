@@ -4,38 +4,35 @@ import 'jokes.dart';
 Color appColor = Colors.green[300] as Color;
 
 void main() {
-  generateJokes();
   runApp(MaterialApp(
-    home: Scaffold( 
+    home: Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: appColor,
         title: const Text("Favorite Jokes"),
       ),
-      body: const JokeList(),  // Display the JokeList widget
+      body: JokeList(jokes: generateJokes()), // Display the JokeList widget
     ),
   ));
 }
 
 class JokeList extends StatefulWidget {
-  const JokeList({super.key});
+  final List<Joke> jokes;
+  const JokeList({super.key, required this.jokes});
 
   @override
   State<JokeList> createState() => _JokeListState();
 }
 
 class _JokeListState extends State<JokeList> {
-  int? currentFavoriteIndex; 
+  int? currentFavoriteIndex;
 
-
-
-  
   void onFavoriteClick(int index) {
     setState(() {
       if (currentFavoriteIndex == index) {
-        currentFavoriteIndex = -1;  
+        currentFavoriteIndex = -1;
       } else {
-        currentFavoriteIndex = index;  
+        currentFavoriteIndex = index;
       }
     });
   }
@@ -43,11 +40,11 @@ class _JokeListState extends State<JokeList> {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      children: jokes.map((joke) {
-        int index = jokes.indexOf(joke);
+      children: widget.jokes.map((joke) {
+        int index = widget.jokes.indexOf(joke);
         return FavoriteCard(
           joke: joke,
-          isFavorite: currentFavoriteIndex == index,  
+          isFavorite: currentFavoriteIndex == index,
           onFavoriteClick: () => onFavoriteClick(index),
         );
       }).toList(),
@@ -86,15 +83,16 @@ class FavoriteCard extends StatelessWidget {
               children: [
                 Text(
                   joke.title,
-                  style: TextStyle(color: appColor, fontWeight: FontWeight.w800),
+                  style:
+                      TextStyle(color: appColor, fontWeight: FontWeight.w800),
                 ),
                 const SizedBox(height: 10.0),
-                Text(joke.description), 
+                Text(joke.description),
               ],
             ),
           ),
           IconButton(
-            onPressed: onFavoriteClick,  
+            onPressed: onFavoriteClick,
             icon: Icon(
               isFavorite ? Icons.favorite : Icons.favorite_border,
               color: isFavorite ? Colors.red : Colors.grey,
