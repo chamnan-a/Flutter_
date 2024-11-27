@@ -4,7 +4,7 @@ import '../model/submission.dart';
 
 class ResultScreen extends StatelessWidget {
   final VoidCallback onRestart; // Callback to restart the quiz
-  final Submission submission; // User's submission with answers
+  final Submission submission; 
   final Quiz quiz; // Quiz details
 
   const ResultScreen({
@@ -54,7 +54,7 @@ class ResultScreen extends StatelessWidget {
               ),
             ),
 
-            // Restart Quiz Button
+          
             ElevatedButton.icon(
               onPressed: onRestart,
               icon: const Icon(Icons.restart_alt),
@@ -74,12 +74,12 @@ class ResultScreen extends StatelessWidget {
 
 // Result Item Widget
 class _ResultItem extends StatelessWidget {
-  final int index; // New field for question index
+  final int index; 
   final Question question;
   final String? userAnswer;
 
   const _ResultItem({
-    required this.index, // Accept the question index
+    required this.index, 
     required this.question,
     required this.userAnswer,
     Key? key,
