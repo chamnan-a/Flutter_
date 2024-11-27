@@ -14,7 +14,7 @@ class QuestionScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue[100], // Background color
+      backgroundColor: Colors.blue, // Background color
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
