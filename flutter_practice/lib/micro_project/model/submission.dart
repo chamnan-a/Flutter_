@@ -24,18 +24,15 @@ void addAnswer(Question question, String userAnswer) {
   // Check if the question already has an answer
   for (var i = 0; i < answers.length; i++) {
     if (answers[i].answer == question) {
-      // If the question is found, create a new Answer object
       answers[i] = Answer(userAnswer: userAnswer, answer: question);
-      return; // Exit after updating
+      return; 
     }
   }
-
-  // If no existing answer is found for the question, add a new answer
   answers.add(Answer(userAnswer: userAnswer, answer: question));
 }
   // remove all answers
   void removeAnswers() {
-    answers.clear(); // Clears the entire list of answers
+    answers.clear(); 
   }
   
 
