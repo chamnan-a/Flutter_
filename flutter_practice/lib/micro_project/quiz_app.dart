@@ -20,7 +20,7 @@ class QuizApp extends StatefulWidget {
 class _QuizAppState extends State<QuizApp> {
   QuizState quizState = QuizState.notStarted; // Initial state
   int currentQuestionIndex = 0;
-  String? currentSelectedAnswer; // To hold the selected answer
+ 
   final Submission submission = Submission();
   @override
   Widget build(BuildContext context) {
@@ -60,7 +60,7 @@ class _QuizAppState extends State<QuizApp> {
     setState(() {
       quizState = QuizState.started;
       currentQuestionIndex = 0;
-      currentSelectedAnswer = null;
+      
     });
   }
 

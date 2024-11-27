@@ -2,19 +2,19 @@ import 'package:flutter/material.dart';
 import '../model/quiz.dart';
 
 class QuestionScreen extends StatelessWidget {
-  final Question question; // Question argument
-  final Function(String) onTap; // Callback argument
+  final Question question; 
+  final Function(String) onTap;
 
   const QuestionScreen({
-    required this.question, // Question argument
-    required this.onTap,    // VoidCallback argument
+    required this.question, 
+    required this.onTap,    
     Key? key,
   }) ;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue, // Background color
+      backgroundColor: Colors.blue[100], // Background color
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
