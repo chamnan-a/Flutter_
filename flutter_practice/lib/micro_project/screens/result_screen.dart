@@ -120,18 +120,37 @@ class _ResultItem extends StatelessWidget {
             ),
             const SizedBox(height: 10),
 
-            // Possible Answers and User Answer
-            ...question.possibleAnswers.map(
-              (answer) => Text(
-                answer,
-                style: TextStyle(
-                  color: answer == question.goodAnswer
-                      ? Colors.green
-                      : (answer == userAnswer ? Colors.red : Colors.black),
-                  fontWeight: answer == userAnswer ? FontWeight.bold : FontWeight.normal,
-                ),
-              ),
-            ),
+            
+...question.possibleAnswers.map(
+  (answer) {
+    return Row(
+      children: [
+        
+        Icon(
+          answer == question.goodAnswer
+              ? Icons.check_circle
+              : (answer == userAnswer ? Icons.cancel : Icons.circle),
+          color: answer == question.goodAnswer
+              ? Colors.green
+              : (answer == userAnswer ? Colors.red : Colors.grey),
+        ),
+        const SizedBox(width: 8), 
+
+        
+        Text(
+          answer,
+          style: TextStyle(
+            color: answer == question.goodAnswer
+                ? Colors.green // Correct answer text is always green
+                : (answer == userAnswer ? Colors.red : Colors.black),
+            fontWeight: answer == userAnswer ? FontWeight.bold : FontWeight.normal,
+          ),
+        ),
+      ],
+    );
+  },
+),
+
           ],
         ),
       ),
